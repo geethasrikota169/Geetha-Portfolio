@@ -2,9 +2,16 @@ import { useState, useEffect } from 'react';
 import { Menu, X, Github, Linkedin, Mail, Send, Sun, Moon } from 'lucide-react';
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import {
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+
+
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -25,29 +32,46 @@ function App() {
 
   const technologies = {
     "Languages": ["C", "Java", "Python", "JavaScript", "CSS", "HTML"],
-    "Frameworks/Libraries": ["React.js", "Spring Boot","Jasmine","Maven"],
-    "Tools": ["Postman", "MySQL", "PostgreSQL", "Eclipse", "Git","GitHub", "IntelliJ IDEA"],
+    "Frameworks/Libraries": ["React.js", "Node.js", "Express.js", "Spring Boot", "Jasmine", "Maven"],
+    "Tools": ["Postman", "MySQL", "PostgreSQL", "MongoDB", "Eclipse", "Git", "GitHub", "IntelliJ IDEA", "DevOps", "CI/CD", "Tableau", "Jenkins"],
     "Other Skills": ["Video Editing","UI/UX Design","Testing"]
   };
 
   const projects = [
     {
-      title: "YouTube Clone",
-      description: "A responsive YouTube clone built with HTML and CSS, replicating the core UI features of the platform",
-      tech: ["HTML", "CSS"],
-      gradient: "from-pink-500 to-rose-500"
+      title: "Task Management System",
+      description: "Developed a responsive task management system using Spring Boot, React, and SQL, with complete functionality for task tracking and management. Enhanced user experience by adding intuitive features and optimizing performance for efficiency.",
+      tech: ["ReactJs","Spring Boot", "MySQL","Postman","RestAPI","Maven"],
+      gradient: "from-blue-500 to-cyan-500",
+      link: "https://taskfusion-frontend-1.onrender.com"
+    },
+    {
+      title: "Fake News Detection (AIML Project)",
+      description: "Utilized the BERT model with Python and the Hugging Face library to develop a robust system for identifying and classifying fake news. This project involved complex data analysis, model fine-tuning, and performance evaluation, showcasing a deep understanding of machine learning principles and their application in solving real-world problems.",
+      tech: ["Python", "BERT", "Hugging Face", "Machine Learning"],
+      gradient: "from-green-500 to-teal-500",
+      link: "#"
+    },
+    {
+      title: "Voice Virtual Assistant (Eleven Labs)",
+      description: "Created a voice-controlled virtual assistant using Python and the Eleven Labs API. The project features natural language processing to understand voice commands and provide real-time responses, demonstrating proficiency in integrating advanced AI services and building interactive, user-focused applications.",
+      tech: ["Python", "Eleven Labs API", "NLP"],
+      gradient: "from-orange-500 to-amber-500",
+      link: "#"
     },
     {
       title: "E-commerce Website",
       description: "Developed an Amazon-inspired project utilizing JavaScript features such as DOM manipulation, OOP, modules, async programming, and testing. Integrated Git for version control and implemented a seamless user interface with advanced functionality.",
       tech: ["HTML", "CSS", "JavaScript", "Testing"],
-      gradient: "from-violet-500 to-purple-500"
+      gradient: "from-violet-500 to-purple-500",
+      link: "https://geethasrikota169.github.io/Ecommerce-website/"
     },
     {
-      title: "Task Management System (In Progress)",
-      description: "Developed a responsive task management system using Spring Boot, React, and SQL, with complete functionality for task tracking and management. Enhanced user experience by adding intuitive features and optimizing performance for efficiency.",
-      tech: ["CSS","JavaScript","ReactJs", "Spring Boot", "MySQL","Postman","RestAPI","Maven","JDBC"],
-      gradient: "from-blue-500 to-cyan-500"
+      title: "YouTube Clone",
+      description: "A responsive YouTube clone built with HTML and CSS, replicating the core UI features of the platform",
+      tech: ["HTML", "CSS"],
+      gradient: "from-pink-500 to-rose-500",
+      link: "#"
     }
   ];
 
@@ -65,6 +89,7 @@ function App() {
               <a href="#about" className="hover:text-primary transition-colors">About</a>
               <a href="#technologies" className="hover:text-primary transition-colors">Technologies</a>
               <a href="#projects" className="hover:text-primary transition-colors">Projects</a>
+              <a href="#certifications" className="hover:text-primary transition-colors">Certifications</a>
               <a href="#contact" className="hover:text-primary transition-colors">Contact</a>
               <Button
                 variant="ghost"
@@ -100,6 +125,7 @@ function App() {
               <a href="#about" className="block px-3 py-2 hover:bg-muted rounded-md">About</a>
               <a href="#technologies" className="block px-3 py-2 hover:bg-muted rounded-md">Technologies</a>
               <a href="#projects" className="block px-3 py-2 hover:bg-muted rounded-md">Projects</a>
+              <a href="#certifications" className="block px-3 py-2 hover:bg-muted rounded-md">Certifications</a>
               <a href="#contact" className="block px-3 py-2 hover:bg-muted rounded-md">Contact</a>
             </div>
           </div>
@@ -142,7 +168,7 @@ function App() {
           <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-pink-500 to-violet-500 bg-clip-text text-transparent">About Me</h2>
           <div className="max-w-3xl mx-auto backdrop-blur-sm bg-white/50 dark:bg-black/20 p-6 rounded-lg shadow-xl">
             <p className="text-lg mb-4">
-              I'm a second-year B.Tech student at KL University, Vaddeswaram, pursuing Computer Science and Information Technology. With a strong academic record (CGPA: 9.7), I'm passionate about web development and constantly exploring new technologies.
+              I'm a Third-year B.Tech student at KL University, Vaddeswaram, pursuing Computer Science and Information Technology. With a strong academic record (CGPA: 9.7), I'm passionate about web development and constantly exploring new technologies.
             </p>
             <p className="text-lg">
               As a developer, I combine my knowledge of frontend and backend technologies to create comprehensive web solutions. I'm also skilled in video editing, bringing a creative approach to my development projects.
@@ -206,9 +232,35 @@ function App() {
                       </Badge>
                     ))}
                   </div>
+                  <div className="mt-4">
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      <Button variant="outline" size="sm" className="hover:bg-primary hover:text-primary-foreground transition-colors">
+                        Visit Website
+                      </Button>
+                    </a>
+                  </div>
                 </CardContent>
               </Card>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Certifications Section */}
+      <section id="certifications" className="py-16">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-bold mb-8 text-center bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent">Certifications</h2>
+          <div className="max-w-3xl mx-auto">
+            <Card className="hover:shadow-xl transition-all duration-300 backdrop-blur-sm bg-white/50 dark:bg-black/20">
+              <CardHeader>
+                <CardTitle>Salesforce Certified AI Associate</CardTitle>
+              </CardHeader>
+            </Card>
+            <Card className="mt-4 hover:shadow-xl transition-all duration-300 backdrop-blur-sm bg-white/50 dark:bg-black/20">
+              <CardHeader>
+                <CardTitle>Cambridge Linguaskill English Certificate – B2 Level</CardTitle>
+              </CardHeader>
+            </Card>
           </div>
         </div>
       </section>
